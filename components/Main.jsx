@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Image from "next/image";
 import Second from "./Second";
 import Contact from "./Contact.jsx";
@@ -6,22 +6,27 @@ import First from "./First";
 import Skills from "./Skills";
 import ProfessionalsExperience from "./ProfessionalsExperience";
 import Other from "./Other";
-import context from "../context/Context";
+
+
 import FormMessage from "./FormMessage";
 
 const Main = () => {
-  const [open, setClose] = React.useState(false);
 
-  const { active, setActive } = useContext(context);
+  // console.log(providers)
+  const [open, setClose] = React.useState(false);
+  const [active, setActive] = React.useState(0);
+  const activePage = e => {
+    setActive(e);
+  };
 
   const secondOC = () => {
     setClose(!open);
   };
 
   return (
-    <div className="h-full w-full flex">
+    <div className="h-full w-full flex ">
       <First secondOC={secondOC} />
-      {open ? <Second /> : ""}
+      {open ? <Second activePage={activePage} active={active}/> : ""}
 
       {/* Third  */}
       <div className="h-full w-full bg-[#1e1e1e]  pt-9 relative ">
@@ -69,44 +74,46 @@ const Main = () => {
           </p>
 
           {/* contact  */}
-          <div className="w-full h-full flex p-2 md:p-6">
+          <div className="w-full h-[430px] mm:h-full flex p-2 md:p-6 overflow-y-scroll md:overflow-visible">
             {active === 0 ? <Contact /> : ""}
             {active === 1 ? <ProfessionalsExperience /> : ""}
             {active === 2 ? <Skills /> : ""}
             {active === 3 ? <Other /> : ""}
           </div>
-        </div>
-        <div className="w-full h-1/5 bg-[#1e1e1e] border-t-2 border-slate-600 absolute bottom-0 flex  px-4 flex-col pr-16">
-          <div style={{ justifyContent: "space-between" }} className="flex">
-            <div className="flex gap-3 mm:gap-5  text-[14px] text-slate-400 my-2 ">
-              <p>TERMINAL</p>
-              <p className="hidden  mm:block">GITLENS</p>
-              <p className="hidden sm:block">DEBUG CONSOLE</p>
-              <p className="hidden lm:block">PROBLEM</p>
-              <p className="hidden md:block">OUTPUT</p>
+          <div className="w-full h-[9rem] ld:h-[7rem] xl:h-[rem]  bg-[#1e1e1e] border-t-2 border-slate-600 absolute bottom-0 flex  px-4 flex-col pr-16">
+            <div style={{ justifyContent: "space-between" }} className="flex">
+              <div className="flex gap-3 mm:gap-5  text-[14px] text-slate-400 my-2 ">
+                <p>TERMINAL</p>
+                <p className="hidden  mm:block">GITLENS</p>
+                <p className="hidden sm:block">DEBUG CONSOLE</p>
+                <p className="hidden lm:block">PROBLEM</p>
+                <p className="hidden md:block">OUTPUT</p>
+              </div>
+              <div className="h-50 w-50 flex gap-2 ">
+                <Image src="/plus.svg" width={27} height={27} />
+                <Image src="/down.svg" width={15} height={20} />
+                <Image src="/up.svg" width={15} height={20} />
+                <Image src="/delete.svg" width={20} height={20} />
+              </div>
             </div>
-            <div className="h-50 w-50 flex gap-2 ">
-              <Image src="/plus.svg" width={27} height={27} />
-              <Image src="/down.svg" width={15} height={20} />
-              <Image src="/up.svg" width={15} height={20} />
-              <Image src="/delete.svg" width={20} height={20} />
+            <div className="pt-1">
+              <p className="text-slate-400">
+                <span className="text-fuchsia-700">event</span> - compiled
+                successfully in 81 ms (174 modules){" "}
+              </p>
+              <p className="text-slate-400">
+                <span className="text-blue-500">wait</span> - compiling...{" "}
+              </p>
             </div>
-          </div>
-          <div className="pt-1">
-            <p className="text-slate-400">
-              <span className="text-fuchsia-700">event</span> - compiled
-              successfully in 81 ms (174 modules){" "}
-            </p>
-            <p className="text-slate-400">
-              <span className="text-blue-500">wait</span> - compiling...{" "}
-            </p>
-          </div>
 
-          {/* <FormMessage /> */}
+            {/* <FormMessage /> */}
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
+
 
 export default Main;

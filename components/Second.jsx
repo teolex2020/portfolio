@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Image from "next/image";
-import context from "../context/Context";
 
-const Second = () => {
-  const { activePage, active } = useContext(context);
 
+const Second = ({ active, activePage }) => {
+ 
+
+  console.log(active)
   const img = (
     <Image
       src="/images.png"

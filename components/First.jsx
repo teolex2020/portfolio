@@ -1,5 +1,8 @@
 import React from 'react'
 import Image from 'next/image';
+import Link from "next/link"
+
+
 
 const First = ({secondOC}) => {
   
@@ -29,15 +32,20 @@ const First = ({secondOC}) => {
             className="fill-white"
           />
         </div>
-        <div className="p-3 cursor-pointer w-15 hover:bg-slate-600 hover:rounded px-1 flex justify-center relative">
-          <Image
-            src="/github.svg"
-            width={30}
-            height={30}
-            className="fill-white"
-          />
-          <div className="absolute w-2 h-2 rounded-full bg-green-600 right-2 bottom-2"></div>
-        </div>
+        <Link href="https://github.com/teolex2020/portfolio">
+          <a>
+            <div className="p-3 cursor-pointer w-15 hover:bg-slate-600 hover:rounded px-1 flex justify-center relative">
+              <Image
+                src="/github.svg"
+                width={30}
+                height={30}
+                className="fill-white"
+              />
+              <div className="absolute w-2 h-2 rounded-full bg-green-600 right-2 bottom-2"></div>
+            </div>
+          </a>
+        </Link>
+
         <div className="p-3 cursor-pointer w-15 flex justify-center">
           <Image
             src="/gitbranch.svg"

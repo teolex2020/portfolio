@@ -2,10 +2,14 @@ import React from 'react'
 import Image from 'next/image';
 
 const Contact = () => {
+   const [open, setOpen] = React.useState(false);
+   const timeClouse = () =>
+     setTimeout(() => {
+       setOpen(false);
+     }, 5000);
 
  const maps = [
-   { number: 5, name: "teolex2017@gmail.com" },
-   { number: 6, name: "+3(8098)456-84-41" },
+    
    { number: 7, name: "https://github.com/teolex2020" },
    { number: 8, name: "Ukraine" },
  ];
@@ -42,6 +46,34 @@ const Contact = () => {
           div
           <span className="text-green-700">{">"}</span>
         </p>
+        <p
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => timeClouse()}
+          className="text-slate-400 hover:text-slate-200 cursor-pointer hover:underline hover:underline-offset-1 hover:bg-slate-800"
+        >
+          <span className="text-slate-400 mr-20">5</span>
+          <span>{"<"}</span>
+          <span className="text-red-700">{"p"}</span>
+          <span>{">"}</span>
+          {open ? "+3(8098)-456-84-41" : "+3(8098)XXX-XX-XX"}
+          <span>{"</"}</span>
+          <span className="text-red-700">{"p"}</span>
+          <span>{">"}</span>
+        </p>
+        <p
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => timeClouse()}
+          className="text-slate-400 hover:text-slate-200 cursor-pointer hover:underline hover:underline-offset-1 hover:bg-slate-800"
+        >
+          <span className="text-slate-400 mr-20">6</span>
+          <span>{"<"}</span>
+          <span className="text-red-700">{"p"}</span>
+          <span>{">"}</span>
+          {open ? "teolex2017@gmail.com" : "XXXXXXXX@gmail.com"}
+          <span>{"</"}</span>
+          <span className="text-red-700">{"p"}</span>
+          <span>{">"}</span>
+        </p>
         {maps.map((e, index) => (
           <p
             key={index}
@@ -52,6 +84,7 @@ const Contact = () => {
             <span className="text-red-700">{"p"}</span>
             <span>{">"}</span>
             {e.name}
+
             <span>{"</"}</span>
             <span className="text-red-700">{"p"}</span>
             <span>{">"}</span>

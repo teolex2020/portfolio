@@ -4,7 +4,7 @@ const Skills = () => {
   const maps = [
   
     { number: 5, name: "Next.js(React.js)" },
-    { number: 6, name: "SCSS" },
+    { number: 6, name: "SASS" },
     { number: 7, name: "Tailwind" },
     { number: 8, name: "Redux Toolkit" },
     { number: 9, name: "MongoDB" },
