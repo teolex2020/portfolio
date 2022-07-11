@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "prettier", "next/babel"]
+  "extends": ["next/core-web-vitals",  "next/babel"]
 }
 
 // Tailwind CSS: Invalid or unexpected token когда выдает такую ошибку нужно добавить как выше prettier
