@@ -1,5 +1,5 @@
 import React from 'react'
-import bd from "../pages/bd.jsx"
+import bd from "../components/bd.jsx"
 
 
 
